@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+ package pub;
+ option go_package = "./;pub";
+import "google/protobuf/empty.proto";
+
+message Consumer {
+
+ int64 id=1;
+ string createdat=2;
+ string updatedat=3;
+ string deletedat=4;
+ string consumername=5;
+ string consumerid=6;
+ string clientname=7;
+ string clientid=8;
+ string cspid=9;
+ string fedexid=10;
+ string clientrepresentative=11;
+ string ssn=12;
+ string othernames=13;
+ string dateofbirth=14;
+ string address=15;
+ }
+
+service Service{
+
+ }

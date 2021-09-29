@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumerinformationmodule
+  labels:
+    app: consumerinformationmodule
+spec:
+  selector:
+    matchLabels:
+      app: consumerinformationmodule
+  template:
+    metadata:
+      labels:
+        app: consumerinformationmodule
+    spec:
+      containers:
+       - name: consumerinformationmodule
+         image: /misna_consumerinformationmodule:vyKpBkczTuVC768maRmY8im
+         imagePullPolicy: Always
+         env:
+          - name: DEFAULT_DB
+            value: "{{.Values.DEFAULT_DB}}"
+          - name: DEFAULT_DIALET
+            value: "{{.Values.DEFAULT_DIALET}}"
+          - name: DEFAULT_HOST
+            value: "{{.Values.DEFAULT_HOST}}"
+          - name: DEFAULT_PORT
+            value: "{{.Values.DEFAULT_PORT}}"
+          - name: DEFAULT_PWD
+            value: "{{.Values.DEFAULT_PWD}}"
+          - name: DEFAULT_URL
+            value: "{{.Values.DEFAULT_URL}}"
+          - name: DEFAULT_USER
+            value: "{{.Values.DEFAULT_USER}}"
+          - name: GRPC_PORT
+            value: "{{.Values.GRPC_PORT}}"
+          - name: REST_PORT
+            value: "{{.Values.REST_PORT}}"
+          - name: secret
+            value: "{{.Values.secret}}"
+         ports:
+          - containerPort: {{.Values.REST_PORT}}
+            name: rest
